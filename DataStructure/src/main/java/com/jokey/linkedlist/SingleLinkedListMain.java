@@ -120,9 +120,9 @@ public class SingleLinkedListMain {
         HeroNode heroNode4 = new HeroNode(3, "c", "CCC");
 
         SingleLinkedList singleLinkedList = new SingleLinkedList();
-//        singleLinkedList.add(heroNode1);
-//        singleLinkedList.add(heroNode2);
-//        singleLinkedList.add(heroNode3);
+        singleLinkedList.add(heroNode1);
+        singleLinkedList.add(heroNode2);
+        singleLinkedList.add(heroNode3);
 
         singleLinkedList.addByOrder(heroNode1);
         singleLinkedList.addByOrder(heroNode3);

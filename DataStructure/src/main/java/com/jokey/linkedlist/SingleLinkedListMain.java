@@ -93,6 +93,68 @@ class SingleLinkedList {
     }
 
     /**
+    * @Description: 根据编号查找链表 若找到 则修改节点信息为传入的新节点信息
+    * @Author: Jokey Zhou
+    * @Date: 2020/3/10
+    */
+    public void update(HeroNode newHero) {
+        if (head.next == null) {
+            System.out.println("链表为空");
+            return;
+        }
+
+        HeroNode tmp = head.next;
+        Boolean flag = false;  // 设置一个标志位 用于判断是否找到需要更新的节点
+        while (true) {
+            if (tmp == null) {break;}  // 链表已遍历完毕
+            if (tmp.no == newHero.no) {
+                flag = true;
+                break;
+            }
+            tmp = tmp.next;
+        }
+
+        if (flag) {
+            tmp.name = newHero.name;
+            tmp.nickName = newHero.nickName;
+        } else {
+            System.out.println("未找到需要修改的节点");
+        }
+    }
+
+    /**
+    * @Description: 删除节点 首先保证头结点不能动
+     * 因此需要一个辅助节点来遍历链表 我们需要找到的节点是待删除节点的前一个节点
+     * 将前一个节点的指针指向下下的节点即可
+    * @Author: Jokey Zhou
+    * @Date: 2020/3/10
+    */
+    public void delete(int no) {
+        if (head.next == null) {
+            System.out.println("链表为空");
+        }
+
+        HeroNode tmp = head;
+        Boolean flag = false;
+        while (true) {
+            if (tmp.next == null) {
+                break;
+            }
+            if (tmp.next.no == no) {
+                flag = true;
+                break;
+            }
+            tmp = tmp.next;
+        }
+
+        if (flag) {
+            tmp.next = tmp.next.next;
+        } else {
+            System.out.println("未找到需要删除的节点，需要删除的节点编号为：" + no);
+        }
+    }
+
+    /**
      * 展示链表
      */
     public void show() {
@@ -117,17 +179,18 @@ public class SingleLinkedListMain {
         HeroNode heroNode1 = new HeroNode(1, "a", "AAA");
         HeroNode heroNode2 = new HeroNode(2, "b", "BBB");
         HeroNode heroNode3 = new HeroNode(3, "c", "CCC");
-        HeroNode heroNode4 = new HeroNode(3, "c", "CCC");
+        HeroNode heroNode4 = new HeroNode(3, "d", "DDD");
 
         SingleLinkedList singleLinkedList = new SingleLinkedList();
-        singleLinkedList.add(heroNode1);
-        singleLinkedList.add(heroNode2);
-        singleLinkedList.add(heroNode3);
+//        singleLinkedList.add(heroNode1);
+//        singleLinkedList.add(heroNode2);
+//        singleLinkedList.add(heroNode3);
 
         singleLinkedList.addByOrder(heroNode1);
         singleLinkedList.addByOrder(heroNode3);
         singleLinkedList.addByOrder(heroNode2);
-        singleLinkedList.addByOrder(heroNode4);
+        singleLinkedList.update(heroNode4);
+        singleLinkedList.delete(4);
         singleLinkedList.show();
     }
 }

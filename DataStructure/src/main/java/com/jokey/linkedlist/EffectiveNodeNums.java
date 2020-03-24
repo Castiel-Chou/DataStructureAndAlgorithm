@@ -12,6 +12,13 @@ class Node {  // 定义节点类
     int val;
     Node next;
     Node(int x){val = x;}
+
+    @Override
+    public String toString() {
+        return "Node{" +
+                "val=" + val +
+                '}';
+    }
 }
 
 public class EffectiveNodeNums {

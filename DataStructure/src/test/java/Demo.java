@@ -6,6 +6,17 @@
  */
 public class Demo {
     public static void main(String[] args) {
-        System.out.println(5 % 4);
+        int[] nums = {3, 8, 6, 6, 5, 9};
+        int distance = 10000;
+        int count = 0;
+        while (true) {
+            if (distance <= 0) {
+                break;
+            }
+            distance = distance - nums[count % 6];
+            count ++;
+        }
+
+        System.out.println(count);
     }
 }

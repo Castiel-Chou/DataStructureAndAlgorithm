@@ -28,7 +28,7 @@ public class BubbleSort {
         // 创建一个flag用于判断这轮循环是否有发生位置交换
         boolean flag = false;
         // 开始循环
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < arr.length -1; i++) {
             for (int j = 0; j < arr.length -1 -i; j++) {
                 if (arr[j] > arr[j+1]) {
                     // 当进入这个判断调价 说明发生了换位 将flag置为true

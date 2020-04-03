@@ -58,19 +58,21 @@ public class MergeSort {
                 idx ++;
                 j ++;
             }
-            // 到这里表示至少已经有一个子序列中的数字全部都放入临时数组了
-            // 那么此时需要将另外一个子序列中剩下的数字全部放入临时数组中
-            while (i <= mid) {
-                temp[idx] = arr[i];
-                i ++;
-                idx ++;
-            }
-            while (j <= right) {
-                temp[idx] = arr[j];
-                idx ++;
-                j ++;
-            }
         }
+
+        // 到这里表示至少已经有一个子序列中的数字全部都放入临时数组了
+        // 那么此时需要将另外一个子序列中剩下的数字全部放入临时数组中
+        while (i <= mid) {
+            temp[idx] = arr[i];
+            i ++;
+            idx ++;
+        }
+        while (j <= right) {
+            temp[idx] = arr[j];
+            idx ++;
+            j ++;
+        }
+
         // 到此处表示已经将两个子序列中所有的数字按照从小到大的顺序装入了临时数组
         // 此时再将临时数组中的数字复制到原始数组中
         idx = 0;  // 重置临时数组的索引
@@ -84,8 +86,7 @@ public class MergeSort {
 
     public static void mergeSort(int[] arr, int left, int right, int[] temp) {
         if (left < right) {
-//            int mid = left + (right - left) / 2;
-            int mid = (left + right) / 2;
+            int mid = left + (right - left) / 2;
             // 先拆左边部分
             mergeSort(arr, left, mid, temp);
             // 再拆右边部分

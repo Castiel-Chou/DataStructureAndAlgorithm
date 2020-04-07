@@ -2,15 +2,15 @@ package com.jokey.tree;
 
 /**
  * @ClassName: BinaryTree
- * @Description: 二叉树的前序遍历，中序遍历，后序遍历
+ * @Description: 二叉树的前序遍历，中序遍历，后序遍历(递归版本)
  * 给定一棵二叉树
  *      1
  *   2    3
  * 4  5
  *
- * 前序遍历：先输出父节点(root)，再遍历左子树，最后遍历右子树
- * 中序遍历：先遍历左子树，再输出父节点，最后遍历右子树
- * 后序遍历：先遍历左子树，再遍历右子树，最后输出父节点
+ * 前序遍历：先输出父节点(root)，再遍历左子树，最后遍历右子树(1-2-3-5-3)
+ * 中序遍历：先遍历左子树，再输出父节点，最后遍历右子树(4-2-5-1-3)
+ * 后序遍历：先遍历左子树，再遍历右子树，最后输出父节点(4-5-2-3-1)
  * 所以可以看出，三种遍历的区别就在于父节点在哪个位置输出
  *
  * @Author: Jokey Zhou
@@ -26,37 +26,58 @@ class TreeNode {  // 定义一个二叉树的节点类
     public TreeNode(int val) {
         this.val = val;
     }
+
+    // 前序遍历
+    public void preOrder() {
+        // 先输出父节点
+        System.out.println(this.val);
+        // 遍历左子树
+        if (left != null) left.preOrder();
+        // 遍历右子树
+        if (right != null) right.preOrder();
+    }
+
+    // 中序遍历
+    public void inOrder() {
+        // 先找左子树
+        if (left != null) left.inOrder();
+        // 输出父节点
+        System.out.println(this.val);
+        // 遍历右子树
+        if (right != null) right.inOrder();
+    }
+
+    // 后序遍历
+    public void postOrder() {
+        // 先遍历左子树
+        if (left != null) left.postOrder();
+        // 再遍历右子树
+        if (right != null) right.postOrder();
+        // 最后输出父节点
+        System.out.println(this.val);
+    }
 }
 
 class BinaryTree {
-    public TreeNode root;
+    private TreeNode root;
 
-    public BinaryTree(TreeNode root) {
+    public void setRoot(TreeNode root) {
         this.root = root;
     }
 
     // 前序遍历
-    public void preOrderTraversal(TreeNode root) {
-        if (root == null) return;
-        System.out.println(root.val);
-        preOrderTraversal(root.left);
-        preOrderTraversal(root.right);
+    public void preOrder() {
+        root.preOrder();
     }
 
     // 中序遍历
-    public void inOrderTraversal(TreeNode root) {
-        if (root == null) return;
-        inOrderTraversal(root.left);
-        System.out.println(root.val);
-        inOrderTraversal(root.right);
+    public void inOrder() {
+        root.inOrder();
     }
 
     // 后序遍历
-    public void postOrderTraversal(TreeNode root) {
-        if (root == null) return;
-        postOrderTraversal(root.left);
-        postOrderTraversal(root.right);
-        System.out.println(root.val);
+    public void postOrder() {
+        root.postOrder();
     }
 }
 
@@ -73,11 +94,12 @@ public class BinaryTreeMain {
         treeNode2.left = treeNode4;
         treeNode2.right = treeNode5;
 
-        BinaryTree binaryTree = new BinaryTree(treeNode1);
-        binaryTree.preOrderTraversal(treeNode1);
-        System.out.println("================================================");
-        binaryTree.inOrderTraversal(treeNode1);
-        System.out.println("================================================");
-        binaryTree.postOrderTraversal(treeNode1);
+        BinaryTree binaryTree = new BinaryTree();
+        binaryTree.setRoot(treeNode1);
+        binaryTree.preOrder();
+        System.out.println("==========================");
+        binaryTree.inOrder();
+        System.out.println("==========================");
+        binaryTree.postOrder();
     }
 }

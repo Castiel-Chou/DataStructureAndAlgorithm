@@ -12,6 +12,7 @@
         <module>DataStructure</module>
         <module>JavaSE</module>
         <module>exercise</module>
+        <module>algorithm</module>
     </modules>
 
 

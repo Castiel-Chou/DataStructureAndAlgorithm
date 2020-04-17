@@ -10,12 +10,14 @@
  * 输入: [2,0,2,1,1,0]
  * 输出: [0,0,1,1,2,2]
  *
+ * 来源：力扣（LeetCode）
+ * 链接：https://leetcode-cn.com/problems/two-sum
+ * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ *
+ *
  * 赛博世界并不是辽阔的荒野，数据也不全是冰冷的记录，它是亲人的笑靥，它是我们的记忆。
  */
 public class Leetcode75_SortColors {
-    public static void main(String[] args) {
-        // 这道题其实就是一道排序算法
-    }
 
     public static void quickSort(int[] arr, int left, int right) {
         // 定义递归的出口

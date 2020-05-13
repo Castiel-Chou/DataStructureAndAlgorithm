@@ -52,7 +52,6 @@ public class Leetcode121_MaxProfit {
             max = Math.max(prices[i] - min, max);
         }
         return max;
-
     }
 
 }

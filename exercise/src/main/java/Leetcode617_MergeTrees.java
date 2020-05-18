@@ -43,7 +43,7 @@ class TreeNode617 {
 
 public class Leetcode617_MergeTrees {
 
-    public static TreeNode mergeTrees(TreeNode t1, TreeNode t2) {
+    public static TreeNode617 mergeTrees(TreeNode617 t1, TreeNode617 t2) {
         if (t1 == null) return t2;
         if (t2 == null) return t1;
 
